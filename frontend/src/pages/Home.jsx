@@ -1,3 +1,4 @@
+import BlogCard from "../components/BlogCard";
 import Navbar from "../components/Navbar";
 const Home=()=>{
     return(
@@ -27,6 +28,16 @@ const Home=()=>{
         
 
         </div>
+        <div>
+            <BlogCard
+            image="main_page_iamges/mainImage.png"
+        date="May 16, 2025"
+        readTime="2 min read"
+        title="Transform your winter blues into winter creativity"
+        subtitle="Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices people to continue reading."
+            />
+        </div>
+
         </>
     )
 }
