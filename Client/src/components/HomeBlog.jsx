@@ -3,7 +3,7 @@ const HomeBlog=({
     postDate,
     username,
     title="This is The title of the blog",
-    about='lorem'
+    about='Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim omnis, necessitatibus aliquam in quibusdam quisquam aut recusandae adipisci ratione consequatur quasi. Consectetur nobis officia animi quasi veritatis alias consequatur ea.'
 })=>{
         return(
            <div className="w-full flex flex-col md:flex-row items-center py-6 px-4">
@@ -17,7 +17,7 @@ const HomeBlog=({
   </div>
 
   {/* Text Section */}
-  <div className="w-full md:w-1/2 mt-6 md:mt-0 md:pl-8 text-gray-700">
+  <div className="w-full md:w-1/2 mt-6 md:mt-0 md:pl-8 text-gray-700 hover:text-indigo-600 cursor-pointer">
     <p className="text-sm">
       {postDate} ·{" "}
       <span className="cursor-pointer underline hover:text-indigo-600">
