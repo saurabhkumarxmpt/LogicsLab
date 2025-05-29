@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Navbar=()=>{
 
     const [isOpen, setIsOpen] = useState(false);
@@ -6,7 +7,7 @@ const Navbar=()=>{
          <nav className="bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-22">
-          <div className="text-2xl font-bold text-indigo-600">LogicLab</div>
+        <Link to='/'> <div className="text-2xl font-bold text-indigo-600">LogicLab</div></Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
@@ -22,9 +23,9 @@ const Navbar=()=>{
           </div>
  
           <div className="hidden md:block">
-            <button className="bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700 transition cursor-pointer font-semibold rounded">
+           <Link to='/login'> <button className="bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700 transition cursor-pointer font-semibold rounded">
               Get Started
-            </button>
+            </button></Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -51,9 +52,9 @@ const Navbar=()=>{
           <a href="#" className="block text-gray-700 hover:text-indigo-600">
             Contact
           </a>
-          <button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+          <Link to='/login'><button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
             Get Started
-          </button>
+          </button></Link>
         </div>
       )}
     </nav>
