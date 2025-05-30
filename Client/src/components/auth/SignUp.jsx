@@ -8,6 +8,8 @@ const SignUp = () => {
 
   const navigate=useNavigate();
 
+
+  //get the form data
   const[user,setUser]=useState({
     name:'',
     username:'',
@@ -15,12 +17,16 @@ const SignUp = () => {
     password:''
   });
 
+
+  //save data into state
   const HandleChange=(event)=>{
     const name=event.target.name;
     const value=event.target.value;
     setUser((prevUser)=>({...prevUser,[name]:value}));
   }
 
+
+  //save the user on the database
   const HandleSubmit=async(e)=>{
     e.preventDefault();
     try{
