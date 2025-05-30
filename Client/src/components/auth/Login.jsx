@@ -1,6 +1,6 @@
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <>
@@ -18,27 +18,29 @@ const Login = () => {
 
         {/* Right Side Form */}
         <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-50 p-8">
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-md px-14">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
               Login
             </h1>
 
             <form className="space-y-4">
               <div>
-                <label className="block text-gray-600 mb-1">Email</label>
+                <label className="block text-gray-600 text-sm font-medium mb-1">Username</label>
                 <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  type="text"
+                  name="username"
+                  id="username"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-600 mb-1">Password</label>
+                <label className="block text-gray-600 text-sm font-medium  mb-1">Password</label>
                 <input
                   type="password"
-                  placeholder="Enter your password"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  name="password"
+                  id="password"
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -57,9 +59,9 @@ const Login = () => {
 
               <p className="text-center text-sm text-gray-600 mt-4">
                 New here?{" "}
-                <a href="#" className="text-indigo-600 hover:underline">
+                <Link to='/signup' href="#" className="text-indigo-600 hover:underline">
                   Please sign up
-                </a>
+                </Link>
               </p>
             </form>
           </div>
