@@ -16,7 +16,6 @@ database();   //database
 
 app.use('/auth',AuthRoute); //Auth Route
 
-
 app.get('/',(req,res)=>{
     res.json({message:'this is home page'})
 });
