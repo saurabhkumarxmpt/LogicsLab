@@ -1,6 +1,6 @@
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {useState} from 'react';
 import axios from '../../Axios';
 const Login = () => {
@@ -10,6 +10,8 @@ const Login = () => {
     username:'',
     password:''
   });
+
+  const navigate=useNavigate();
 
   //handle the chnages of input value
   const HandleData=(e)=>{
@@ -27,6 +29,7 @@ const Login = () => {
       localStorage.setItem('token',token);
       console.log(user);
       alert('Login successful');
+      navigate('/profile');
     }catch(err){
       alert("somthing went wrong");
     }

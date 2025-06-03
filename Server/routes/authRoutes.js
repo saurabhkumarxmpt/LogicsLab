@@ -6,10 +6,7 @@ const authMiddleware=require('../middlewares/authMiddleware');
 router.post('/signup',signUp);
 router.post('/login',login);
 router.get('/profile',authMiddleware,(req,res)=>{ 
-    res.json({
-        message: 'User profile data',
-        user: req.user
-    })
+     res.json({user:req.user})
 });
 
 module.exports=router;
