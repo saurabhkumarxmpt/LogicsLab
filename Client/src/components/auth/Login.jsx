@@ -29,7 +29,7 @@ const Login = () => {
       localStorage.setItem('token',token);
       console.log(user);
       alert('Login successful');
-      navigate('/profile');
+      navigate(`/${response.data.user.username}`);
     }catch(err){
       alert("somthing went wrong");
     }

@@ -7,7 +7,7 @@ const userSchema=new mongoose.Schema({
         password:String,
         profileImage:String,
         bio:String,
-        blogs:[{type:mongoose.Schema.Types.ObjectId,ref: 'Blog'}],
+        blogs:[{type:mongoose.Schema.Types.ObjectId,ref: 'Blogs'}],
 
 },{timestamps:true});
 

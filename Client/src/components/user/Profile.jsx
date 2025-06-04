@@ -1,7 +1,10 @@
 import {useState,useEffect} from 'react';
 import axios from '../../Axios';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useParams } from 'react-router-dom';
+
+
 const Profile=()=>{
+    const{username}=useParams();
     const[user,setUser]=useState(null);
     const navigate=useNavigate();
 
@@ -13,11 +16,12 @@ const Profile=()=>{
         }
 
         try{
-            const res=await axios.get('/auth/profile',{
+            const res=await axios.get(`/auth/${username}`,{
                 headers:{
                     Authorization: `Bearer ${token}`
                 }
             });
+            console.log(user);
             setUser(res.data.user);
         }catch(err){
             onsole.log('Profile fetch failed', err);
@@ -25,7 +29,9 @@ const Profile=()=>{
             navigate('/login');
         }
 
-        useEffect(()=>{
+        
+    }
+    useEffect(()=>{
             fetchProfile();
         },[]);
         
@@ -33,7 +39,6 @@ const Profile=()=>{
             localStorage.removeItem('token');
             navigate('/login');  
             };
-    }
     return(
         <>
         <div>
@@ -58,7 +63,7 @@ const Profile=()=>{
   <div className="mt-6 text-center">
     <button
       onClick={handleLogout}
-      className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-xl transition duration-200"
+      className="px-5 py-2 bg-blue-500 hover:bg-red-600 text-white font-medium rounded-xl transition duration-200"
     >
       Logout
     </button>

@@ -3,6 +3,7 @@ const express=require('express');
 const cors=require('cors');
 const database=require('./config/database');
 const AuthRoute=require('./routes/authRoutes');
+const BlogRoute=require('./routes/userRoutes');
 const app=express();
 const PORT=process.env.PORT;
 
@@ -15,6 +16,7 @@ app.use(cors({
 database();   //database
 
 app.use('/auth',AuthRoute); //Auth Route
+app.use('/user',BlogRoute); //User Route
 
 app.get('/',(req,res)=>{
     res.json({message:'this is home page'})
