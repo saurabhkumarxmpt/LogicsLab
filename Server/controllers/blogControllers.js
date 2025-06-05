@@ -24,3 +24,15 @@ exports.createBlog=async(req,res)=>{
         res.status(500).json({ error: err.message });
     }
 }
+
+exports.getBlogsByUsername=async(req,res)=>{
+    const username=req.params.username;
+
+    try{
+        const blogs=await Blog.find({'author.username': username}).sort({ createdAt: -1 });
+        res.json({blogs});
+    }catch (err) {
+    console.error("Error getting blogs by username:", err);
+    res.status(500).json({ error: 'Server error' });
+  }
+}

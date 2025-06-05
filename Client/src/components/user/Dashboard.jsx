@@ -6,8 +6,10 @@ import UserNavbar from './Navbar';
 const Dashboard=()=>{
     const{username}=useParams();
     const[user,setUser]=useState(null);
-    const navigate=useNavigate();
+    const[blogs,setBlogs]=useState([]);
 
+    const navigate=useNavigate();
+    
     const fetchProfile=async()=>{
         const token=localStorage.getItem('token');
         if(!token){
@@ -24,36 +26,57 @@ const Dashboard=()=>{
             console.log(user);
             setUser(res.data.user);
         }catch(err){
-            onsole.log('Profile fetch failed', err);
+            console.log('Profile fetch failed', err);
             localStorage.removeItem('token');
             navigate('/login');
         }
 
         
     }
+    const fetchBlogs=async()=>{
+
+        try{
+            const res=await axios.get(`/user/${username}`);
+            setBlogs(res.data.blogs);
+            console.log(res.data.blogs);
+        }catch(err){
+            console.log('blogs fetch failed', err);
+        }
+    }
+
+    
     useEffect(()=>{
-            fetchProfile();
+            fetchProfile(),
+            fetchBlogs()
         },[]);
   
     return(
         <>
         <UserNavbar/>
         <div className="flex min-h-screen">
-          <div className="flex-[2] bg-blue-300 p-4 border-r-1 border-gray-500">
+          <div className="flex-[2] p-4 border-r-1 border-gray-500">
             <h1 className='text-3xl'>Hello , {user?.name}</h1>
-            <div>
-
+            <div className="px-10 pt-14">
+            <div className='flex w-full justify-between'>
+            <h1 className="text-xl font-semibold">All Blogs</h1>
+            <button className="px-3 py-2 bg-indigo-600 text-white rounded">Create Blog</button>
+            </div>
+            <div className='bg-red-300 flex gap-4 wrap'>
+                {blogs.lenght > 0 ?(
+                    blogs.map((blog,index)=>(
+                        <div>
+                            
+                        </div>
+                    ))
+                )}
+            </div>
             </div>
           </div>
-          <div className="flex-[1] bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
-  <img
-    src={user?.profileImage || '/default-profile.png'}
-    alt="Profile"
-    className="w-24 h-24 rounded-full object-cover border-2 border-gray-300 mb-4"
-  />
-  <p className="text-lg font-semibold text-gray-800">{user?.name || 'Unnamed'}</p>
-  <p className="text-sm text-gray-600 mt-1">{user?.bio || 'No bio provided'}</p>
-</div>
+          
+          <div className="flex-1 bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
+
+            </div>
+
 
         </div>
         <Outlet/>
