@@ -1,3 +1,4 @@
+//This is the private Route file 
 import { useNavigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {

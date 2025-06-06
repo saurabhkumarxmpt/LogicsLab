@@ -53,33 +53,25 @@ const Dashboard=()=>{
     return(
         <>
         <UserNavbar/>
-        <div className="flex min-h-screen">
-          <div className="flex-[2] p-4 border-r-1 border-gray-500">
-            <h1 className='text-3xl'>Hello , {user?.name}</h1>
-            <div className="px-10 pt-14">
-            <div className='flex w-full justify-between'>
-            <h1 className="text-xl font-semibold">All Blogs</h1>
-            <button className="px-3 py-2 bg-indigo-600 text-white rounded">Create Blog</button>
+        <div className='flex'>
+        <div className='w-3/4 bg-gray-200 p-4'>
+            <h1 className='pt-8 px-7 text-2xl font-semibold'>Hello, <span className="italic font-normal text-gray-700">{user?.name}👋</span></h1>
+            <div className='mt-16'>
+                <div className='flex justify-between px-8 border-b pb-5 border-gray-400'>
+                    <p className='text-xl font-semibold text-gray-600'>All Blogs</p>
+                    <button className='py-1 px-4 bg-indigo-800 text-white rounded cursor-pointer'>Create</button>
+                </div>
+                <div className='bg-red-300'>
+                1
+                </div>
             </div>
-            <div className='bg-red-300 flex gap-4 wrap'>
-                {blogs.lenght > 0 ?(
-                    blogs.map((blog,index)=>(
-                        <div>
-                            
-                        </div>
-                    ))
-                )}
-            </div>
-            </div>
-          </div>
-          
-          <div className="flex-1 bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
-
-            </div>
-
-
         </div>
-        <Outlet/>
+        <div className='w-2/4 bg-gray-100 p-4'>
+            {/* Bada Div */}
+            Bada Div
+        </div>
+        </div>
+
         </>
     )
 }

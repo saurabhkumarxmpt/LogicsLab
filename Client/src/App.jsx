@@ -1,9 +1,9 @@
 import {Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
-import Login from './components/auth/Login';
-import SignUp from './components/auth/SignUp';
-import Dashboard from './components/user/Dashboard'
-import PrivateRoute from './components/PrivateRoute';
+import Login from './components/auth/Login'; //Login page
+import SignUp from './components/auth/SignUp'; //Sign Up Page
+import Dashboard from './components/user/Dashboard' // User Dashboard Page
+import PrivateRoute from './components/PrivateRoute'; // This is the Private Route for auth
 const App=()=>{
   return(
     <>

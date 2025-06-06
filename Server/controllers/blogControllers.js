@@ -1,6 +1,8 @@
-const Blog=require('../models/BlogSchema');
-const User=require('../models/User');
+const Blog=require('../models/BlogSchema'); //Blog Schema
+const User=require('../models/User'); //User Schema
 
+
+//Create a new blog after login
 exports.createBlog=async(req,res)=>{
     console.log("USER FROM TOKEN:", req.user);
     const{title,content,image}=req.body;
@@ -25,6 +27,8 @@ exports.createBlog=async(req,res)=>{
     }
 }
 
+
+//Find all blogs using the username
 exports.getBlogsByUsername=async(req,res)=>{
     const username=req.params.username;
 

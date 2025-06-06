@@ -1,15 +1,14 @@
-import { useNavigate,useParams } from 'react-router-dom';
+// This is the navbar for logged-in users
+import { useNavigate } from 'react-router-dom';
 
 const UserNavbar = () => {
+
   const navigate = useNavigate();
-  const{username}=useParams();
+
+//Handle the logout 
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
-  };
-
-  const handleProfile = () => {
-    navigate(`/${username}/profile`);
   };
 
   return (
@@ -19,7 +18,7 @@ const UserNavbar = () => {
       <div className="space-x-4">
         <button
           onClick={handleLogout}
-          className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm"
+          className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm cursor-pointer"
         >
           Logout
         </button>
