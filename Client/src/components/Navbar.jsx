@@ -11,9 +11,9 @@ const Navbar=()=>{
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
-            <a href="#" className="text-gray-700 hover:text-indigo-600 hover:underline">
+            <Link to="/allblogs" className="text-gray-700 hover:text-indigo-600 hover:underline">
                All Blogs
-            </a>
+            </Link>
             <a href="#" className="text-gray-700 hover:text-indigo-600 hover:underline">
               About
             </a>
@@ -43,9 +43,9 @@ const Navbar=()=>{
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
-          <a href="#" className="block text-gray-700 hover:text-indigo-600">
+          <Link to="allblogs" className="block text-gray-700 hover:text-indigo-600">
            All Blogs
-          </a>
+          </Link>
           <a href="#" className="block text-gray-700 hover:text-indigo-600">
             About
           </a>

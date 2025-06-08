@@ -1,11 +1,15 @@
+
 import Navbar from "../components/Navbar";
 import HomeBlog from "../components/HomeBlog";
 import Footer from "../components/Footer";
+import {Link} from 'react-router-dom'
+import axios from '../Axios';
 const Home=()=>{
+
     return(
         <>
         <Navbar/>
-                    <div className="flex flex-wrap min-h-screen">
+             <div className="flex flex-wrap min-h-screen">
             {/* Left Side Image */}
             <div className="w-full md:w-1/2 p-4">
                 <img
@@ -46,9 +50,9 @@ const Home=()=>{
 
                 {/* Button */}
                 <div className="text-center mt-6">
-                    <button className="py-3 px-8 border border-gray-400 rounded hover:text-white hover:bg-indigo-600 transition duration-300">
+                    <Link to='allblogs' className="py-3 px-8 border border-gray-400 rounded hover:text-white hover:bg-indigo-600 transition duration-300">
                     All Posts
-                    </button>
+                    </Link>
                 </div>
                 </div>
             </div>
