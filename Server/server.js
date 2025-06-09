@@ -12,7 +12,7 @@ const path = require('path');
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.RENDER_URI,
     credentials: true              
 }));
 database();   //database
