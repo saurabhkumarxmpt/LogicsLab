@@ -13,6 +13,7 @@ const FullBlog=()=>{
     const [loading,setLoading]=useState(true);
     const [error,setError]=useState(null);
 
+    //fetch blogs and save into state
     const fetchBlog=async()=>{
         try{
             const res=await axios.get(`/clint/userBlog/${id}`);
@@ -29,6 +30,7 @@ const FullBlog=()=>{
         fetchBlog() 
     },[]);
 
+    //for controling the errors
     if (error) return <p>{error}</p>;
     if (!blog) return <p>Blog not found</p>;
 
@@ -68,13 +70,13 @@ const FullBlog=()=>{
 
             {blog.image && (
                 <img
-                src={`http://localhost:3000${blog.image}`}
+                src={blog.image}
                 alt={blog.title}
                 className="w-full h-64 object-cover rounded-lg mb-6"
                 />
             )}
 
-            <div className="text-lg leading-7 whitespace-pre-line text-gray-800">
+            <div className="text-lg leading-7 whitespace-pre-line pb-[210px] text-gray-800">
                 {blog.content}
             </div>
         </div>

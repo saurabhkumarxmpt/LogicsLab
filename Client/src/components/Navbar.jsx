@@ -14,12 +14,12 @@ const Navbar=()=>{
             <Link to="/allblogs" className="text-gray-700 hover:text-indigo-600 hover:underline">
                All Blogs
             </Link>
-            <a href="#" className="text-gray-700 hover:text-indigo-600 hover:underline">
+            <Link to='/about' className="text-gray-700 hover:text-indigo-600 hover:underline">
               About
-            </a>
-            <a href="#" className="text-gray-700 hover:text-indigo-600 hover:underline">
+            </Link>
+            <Link to='/contact' className="text-gray-700 hover:text-indigo-600 hover:underline">
               Contact
-            </a>
+            </Link>
           </div>
  
           <div className="hidden md:block">
@@ -43,15 +43,15 @@ const Navbar=()=>{
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
-          <Link to="allblogs" className="block text-gray-700 hover:text-indigo-600">
+          <Link to="/allblogs" className="block text-gray-700 hover:text-indigo-600">
            All Blogs
           </Link>
-          <a href="#" className="block text-gray-700 hover:text-indigo-600">
+          <Link to="/about" className="block text-gray-700 hover:text-indigo-600">
             About
-          </a>
-          <a href="#" className="block text-gray-700 hover:text-indigo-600">
+          </Link>
+          <Link to='/contact' className="block text-gray-700 hover:text-indigo-600">
             Contact
-          </a>
+          </Link>
           <Link to='/login'><button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
             Get Started
           </button></Link>

@@ -8,12 +8,16 @@ import PrivateRoute from './components/PrivateRoute'; // This is the Private Rou
 import AllBlogs from './pages/AllBlogs';
 import FullBlog from './components/client/FullBlog';
 import Profile from './components/client/Profile';
+import AboutPage from './pages/About';
+import ContactPage from './pages/ContactPage';
 const App=()=>{
   return(
     <>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/allblogs' element={<AllBlogs/>}/>
+      <Route path='/about' element={<AboutPage/>}/>
+      <Route path='/contact' element={<ContactPage/>}/>
       <Route path="/:username/blog/:id" element={<FullBlog/>} />
       <Route path="profile/:username" element={<Profile/>} />
       <Route path='/login' element={<Login/>}/>

@@ -31,6 +31,7 @@ const Dashboard = () => {
       }
     };
 
+    //fetch All blogs using username
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(`/user/${username}`);
@@ -160,9 +161,9 @@ const Dashboard = () => {
           {user ? (
             <>
               <img
-                src={`http://localhost:5000/uploads/${user.image}`}
+                src={`https://api.dicebear.com/7.x/initials/svg?seed=${user?.username}`}
                 alt={`${user.name} profile`}
-                className="w-32 h-32 rounded-full object-cover border-4 border-indigo-600"
+                className="w-32 h-32 rounded-full object-cover "
               />
               <h3 className="text-xl font-semibold text-gray-900">{user.name}</h3>
               <p className="text-gray-600">@{user.username}</p>
@@ -229,7 +230,7 @@ const Dashboard = () => {
                   <h3 className="text-2xl font-bold mb-3">{selectedBlog.title}</h3>
                   {selectedBlog.image && (
                     <img
-                      src={`http://localhost:3000${selectedBlog.image}`}
+                      src={selectedBlog.image}
                       alt={selectedBlog.title}
                       className="w-full h-48 object-cover rounded mb-4"
                     />

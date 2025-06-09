@@ -5,7 +5,7 @@ import {useState} from 'react';
 import axios from '../../Axios';
 const Login = () => {
 
-  //define the data state
+  //save user data 
   const[data,setData]=useState({
     username:'',
     password:''
@@ -51,7 +51,7 @@ const Login = () => {
 
         {/* Right Side Form */}
         <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-50 p-8">
-          <div className="w-full max-w-md px-14">
+          <div className="w-full max-w-md md:px-14">
             <h1 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
               Login
             </h1>

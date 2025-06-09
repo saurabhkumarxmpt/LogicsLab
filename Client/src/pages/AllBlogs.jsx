@@ -5,8 +5,10 @@ import  Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 import axios from '../Axios';
 const AllBlogs=()=>{
+
     const[blogs,setblogs]=useState([]);
 
+    //fetch all blogs from backend
     const fetchBlogs=async()=>{
         try{
             const res=await axios.get('/clint/allblogs');
@@ -34,7 +36,7 @@ const AllBlogs=()=>{
             <Link to={`/${blog.author.username}/blog/${blog._id}`}>
               {blog.image ? (
                 <img
-                  src={`http://localhost:3000${blog.image}`}
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />

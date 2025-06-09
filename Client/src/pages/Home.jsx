@@ -1,15 +1,31 @@
-
+import {useEffect,useState} from 'react';
 import Navbar from "../components/Navbar";
 import HomeBlog from "../components/HomeBlog";
 import Footer from "../components/Footer";
 import {Link} from 'react-router-dom'
 import axios from '../Axios';
 const Home=()=>{
+    const[blogs,setblogs]=useState([]);
 
+    //this is used for define latest 5 blogs on home page
+    const fetchBlogs=async()=>{
+        try{
+            const res=await axios.get('/clint/allblogs');
+            await setblogs(res.data);
+            console.log(res.data);
+        }catch(err){
+            console.error(err.message);
+        }
+    }
+
+    useEffect(()=>{
+        fetchBlogs();
+    },[])
+    
     return(
         <>
         <Navbar/>
-             <div className="flex flex-wrap min-h-screen">
+             <div className="flex flex-wrap min-h-screen bg-gray-50">
             {/* Left Side Image */}
             <div className="w-full md:w-1/2 p-4">
                 <img
@@ -59,33 +75,21 @@ const Home=()=>{
             </div>
             <div className="h-auto mt-20 px-1 md:px-[200px]">
                 <h1 className="text-2xl md:text-4xl font-semibold text-gray-700 py-4 pb-20">Recent Posts</h1>
-                <HomeBlog
-                image='/home_images/second_image.jpg'
-                postDate='may 1,2025'
-                username='saurabh_kumar'
-                />
-                <HomeBlog
-                image='/home_images/second_image.jpg'
-                postDate='may 1,2025'
-                username='saurabh_kumar'
-                />
-                <HomeBlog
-                image='/home_images/second_image.jpg'
-                postDate='may 1,2025'
-                username='saurabh_kumar'
-                />
-                <HomeBlog
-                image='/home_images/second_image.jpg'
-                postDate='may 1,2025'
-                username='saurabh_kumar'
-                />
-                <HomeBlog
-                image='/home_images/second_image.jpg'
-                postDate='may 1,2025'
-                username='saurabh_kumar'
-                />
+                
+                {blogs && blogs.slice(0, 5).map((blog, index) => (
+                    <Link to={`/${blog.author.username}/blog/${blog._id}`}>
+                    <HomeBlog key={index}
+                        title={blog.title}
+                        username={blog.author.username}
+                        content=  {blog.content.slice(0, 150)}
+                        image={blog.image}
+                        postDate={new Date(blog.createdAt).toDateString()}
+                    />
+                    </Link>
+                    ))}
+
             </div>
-                        <div className="w-full max-w-xl mx-auto p-6 bg-white shadow-md rounded-md mt-10">
+            <div className="w-full max-w-xl mx-auto p-6 bg-white shadow-md rounded-md mt-10">
             {/* Heading */}
             <h1 className="text-3xl font-semibold text-center text-gray-800 mb-2">Contact Me</h1>
             <p className="text-center text-gray-500 mb-6">Send a message regarding this website</p>

@@ -1,12 +1,11 @@
 const Blog=require('../models/BlogSchema'); //Blog Schema
 const User=require('../models/User'); //User Schema
 
-
 //Create a new blog after login
 exports.createBlog=async(req,res)=>{
     console.log("USER FROM TOKEN:", req.user);
     const{title,content}=req.body;
-    const image=req.file ? `/uploads/${req.file.filename}` : null;
+    const image=req.file.path;
     const userId=req.user._id;
     try{
         const user=await User.findById(userId);
@@ -22,6 +21,7 @@ exports.createBlog=async(req,res)=>{
         })
 
         await newBlog.save();
+        console.log()
         res.status(201).json({ message: "Blog created", blog: newBlog });
     }catch(err){
         res.status(500).json({ error: err.message });
