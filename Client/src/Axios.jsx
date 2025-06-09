@@ -1,8 +1,11 @@
+// src/AxiosInstance.js
 import axios from 'axios';
 
-const instence=axios.create({
-    baseURL:'http://localhost:3000',
-    withCredentials:true
-})
+console.log("Base URL:", import.meta.env.VITE_API_BASE_URL); // for testing
 
-export default instence;
+const instance = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  withCredentials: true,
+});
+
+export default instance;
